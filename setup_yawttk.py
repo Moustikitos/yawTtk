@@ -17,7 +17,7 @@ setup(
 	description = "yawTtk is a Python wrapper for Tile. It provides classes which allow the display, positioning and control of native look'n feel widgets.",
 	long_description = long_description.read(),
 	platforms = ["win32"],
-	packages = ['yawTtk', 'yawTtk.Xui'],
+	packages = ['yawTtk'], #, 'yawTtk.Xui'],
 	package_data = {'yawTtk': ['tcl/tile0.8.2/*.tcl', 'tcl/tile0.8.2/*.dll', 'tcl/tile0.8.2/*.lib']} if version < 2.7 else {},
 	license = "Copyright© 2006-2015, THOORENS Bruno, BSD licence",
 )
