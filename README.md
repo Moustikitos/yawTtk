@@ -1,5 +1,7 @@
 # `yawTtk`
-[![pypi](https://img.shields.io/pypi/l/yawTtk?style=flat-square)]()
+[![pypi](https://img.shields.io/pypi/l/yawTtk.svg?style=flat-square)]()
+
+[![pypi](https://img.shields.io/pypi/pyversions/yawTtk.svg?style=flat-square)]()
 
 [![pypi](https://img.shields.io/pypi/v/yawTtk.svg?style=flat-square)]()
 [![pypi](https://img.shields.io/pypi/dm/yawTtk.svg?style=flat-square)]()
