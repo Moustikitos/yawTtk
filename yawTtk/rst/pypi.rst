@@ -26,19 +26,19 @@ different ways to configure widgets.
 
 >>> # configure widget with __init__ function
 >>> button = Button(
->>> style = "custom.Toolbutton",
->>> anchor = "center",
->>> font = ("Tahoma", "8", "bold"),
->>> )
+... style = "custom.Toolbutton",
+... anchor = "center",
+... font = ("Tahoma", "8", "bold"),
+... )
 >>> # or with __setattr__ function
 >>> button["foreground"] = "steelblue3"
 >>> button["background"] = "lightgreen"
 >>> # or even with configure function
 >>> button.configure(
->>> command = exit,
->>> text = "Toolbutton",
->>> padding = (5, 1, 5, 1)
->>> )
+... command = exit,
+... text = "Toolbutton",
+... padding = (5, 1, 5, 1)
+... )
 >>> # pack and see...
 >>> button.pack(fill = "x", padx = 5, pady = 5)
 
@@ -81,7 +81,7 @@ do not allow modification for all widget options. Just see the example below :
 ... command = exit,
 ... text = "Flat button",
 ... padding = (5, 1, 5, 1)
->>> )
+... )
 
 For each theme fo Tile :
 
