@@ -71,16 +71,16 @@ do not allow modification for all widget options. Just see the example below :
 
 >>> # other way to configure widget is to give a dictionary...
 >>> cnf = dict(
->>> # relief is not supported in "xpnative" and "winnative" theme
->>> relief = "solid",
->>> # options supported by all theme
->>> anchor = "center",
->>> font = ("Tahoma", "8", "bold"),
->>> foreground = "steelblue3",
->>> background = "lightgreen",
->>> command = exit,
->>> text = "Flat button",
->>> padding = (5, 1, 5, 1)
+... # relief is not supported in "xpnative" and "winnative" theme
+... relief = "solid",
+... # options supported by all theme
+... anchor = "center",
+... font = ("Tahoma", "8", "bold"),
+... foreground = "steelblue3",
+... background = "lightgreen",
+... command = exit,
+... text = "Flat button",
+... padding = (5, 1, 5, 1)
 >>> )
 
 For each theme fo Tile :
