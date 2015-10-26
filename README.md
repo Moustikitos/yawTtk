@@ -1,4 +1,8 @@
 # `yawTtk`
+<img src="https://img.shields.io/pypi/dm/yawTtk.svg" />
+<img src="https://img.shields.io/pypi/v/yawTtk.svg" />
+<img src="https://img.shields.io/badge/wheel-yes-brightgreen.svg" />
+
 `yawTtk` is a Python wrapper for Tile. It provides classes which allow the display,
 positioning and control of native look 'n feel widgets.
 
