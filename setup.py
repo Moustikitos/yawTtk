@@ -8,8 +8,8 @@ import sys, os, shutil
 from yawTtk import __version__
 
 shutil.rmtree("build", ignore_errors = True)
-
-long_description = open("./yawTtk/rst/pypi.rst", "r")
+print({'yawTtk': ['tcl/tile0.8.2/*.tcl', 'tcl/tile0.8.2/*.dll', 'tcl/tile0.8.2/*.lib']} if sys.version_info[:2] < (2,7) else {})
+long_description = open("./rst/pypi.rst", "r")
 setup(
 	name = "yawTtk",
 	version = __version__,
@@ -19,7 +19,7 @@ setup(
 	long_description = long_description.read(),
 	platforms = ["win32"],
 	packages = ['yawTtk'],
-	package_data = {'yawTtk': ['tcl/tile0.8.2/*.tcl', 'tcl/tile0.8.2/*.dll', 'tcl/tile0.8.2/*.lib']} if sys.version_info[:2] < (2,7) else {},
+	package_data = ({'yawTtk': ['tcl/tile0.8.2/*.tcl', 'tcl/tile0.8.2/*.dll', 'tcl/tile0.8.2/*.lib']} if sys.version_info[:2] < (2,7) else {}),
 	license = "Copyright© 2006-2015, THOORENS Bruno, BSD licence",
 )
 long_description.close()
