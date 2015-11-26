@@ -8,10 +8,10 @@
 [![pypi](https://img.shields.io/pypi/dm/yawTtk.svg?style=flat-square)](https://pypi.python.org/pypi/yawTtk/1.0.3)
 [![pypi](https://img.shields.io/badge/wheel-yes-brightgreen.svg?style=flat-square)](https://pypi.python.org/pypi/yawTtk/1.0.3)
 
+<img src="https://assets.gratipay.com/gratipay.svg?etag=3tGiSB5Uw_0-oWiLLxAqpQ~~" href="https://gratipay.com/yawttk" />
+
 `yawTtk` is a Python wrapper for Tile. It provides classes which allow the display,
 positioning and control of native look 'n feel widgets.
-
-<img src="https://assets.gratipay.com/gratipay.svg?etag=3tGiSB5Uw_0-oWiLLxAqpQ~~" href="https://gratipay.com/yawttk" />
 
 ## Why this wrapper ?
 * `yawTtk` works with python 2.5 to python 3.4
