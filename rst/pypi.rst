@@ -2,13 +2,8 @@ TtkWidget class is the core of the yawTtk package. It loads Tile and
 override configure function to manage both widget options and style
 options.
 
-`Feel free for gratitude`_
---------------------------
-
 .. image:: https://assets.gratipay.com/gratipay.svg?etag=3tGiSB5Uw_0-oWiLLxAqpQ~~
-
-.. _feel free for gratitude: https://gratipay.com/yawttk
-
+   :target: https://gratipay.com/yawttk
 
 Extend
 ------
