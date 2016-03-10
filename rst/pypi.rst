@@ -12,7 +12,7 @@ Support this project
 
 .. image:: http://bruno.thoorens.free.fr/img/bitcoin.png
 
-1WJfDP1F2QTgqQhCT53KmhRwQSUkKRHgh
+3Jgib9SQiDLYML7QKBYtJUkHq2nyG6Z63D
 
 .. image:: http://bruno.thoorens.free.fr/img/wallet.png
 
