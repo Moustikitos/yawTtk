@@ -27,7 +27,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 '''
-from . import Frame, Button, Label, Entry, StringVar
+from . import Frame, Button, Label, Entry, StringVar, Tree
 import sys, calendar, datetime
 from time import strptime
 
@@ -293,3 +293,45 @@ class CalendarFrame(Frame):
 
 		if end and self.winfo_toplevel().overrideredirect():
 			self.winfo_toplevel().withdraw()
+
+
+class SQLiteView(Tree):
+
+	def __init__(self, parent=None, cnf={}, **kw):
+		self.__cursor = kw.pop("sqlite_cursor", None)
+		Tree.__init__(self, parent, cnf, **kw)
+		self.tag_configure("even", background="lavender")
+		self.__sort_meaning = True
+		self.__table_name = ""
+
+	def populate(self, tablename, order_by=[], asc=None, **kw):
+		if not self.__cursor: return
+
+		if asc != None: self.__sort_meaning = bool(asc)
+		else: self.__sort_meaning = not self.__sort_meaning
+
+		# get table column names
+		headers = [r[1] for r in self.__cursor.execute("PRAGMA table_info(%s);" % tablename).fetchall()]
+
+		data = self.__cursor.execute('SELECT * FROM "%s" ORDER BY "%s" %s;' % (tablename, '","'.join(k for k in order_by if k in headers), "ASC" if self.__sort_meaning else "DESC")).fetchall() if len(order_by) else \
+		       self.__cursor.execute('SELECT * FROM "%s";' % (tablename,)).fetchall()
+
+		# clear data
+		self.delete(*self.xchildren())
+
+		# redefine headers if needed
+		if self.__table_name != tablename:
+			self['columns'] = " ".join(["{%s}"%h for h in headers])
+			for i in range(len(headers)):
+				text = headers[i]
+				self.heading("#%d"%(i+1), text=text, command=lambda o=self,t=tablename,k=text,kw=kw: o.populate(t,[k],**kw))
+				self.column("#%d"%(i+1), **kw)
+			self.__table_name = tablename
+
+		# populate data
+		even=False
+		for row in data:
+			self.insert(value=tuple(row), tags=("even",) if even else ())
+			even = not even
+
+		self.update()
