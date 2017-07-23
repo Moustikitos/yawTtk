@@ -357,6 +357,18 @@ class Widget(TtkWidget, Tkinter.Pack, Tkinter.Place, Tkinter.Grid):
 		"""
 		if state: self.tk.call(self._w, 'state', state)
 		else: return self.tk.call(self._w, 'state')
+
+	def grid(self, *args, **kwargs):
+		Tkinter.Grid.grid(self, *args, **kwargs)
+		return self
+
+	def pack(self, *args, **kwargs):
+		Tkinter.Pack.pack(self, *args, **kwargs)
+		return self
+
+	def place(self, *args, **kwargs):
+		Tkinter.Place.place(self, *args, **kwargs)
+		return self
 # ==================================================================================================
 
 # ==================================================================================================
@@ -576,6 +588,7 @@ class Autoscrollbar(Scrollbar):
 		self.__layout_args = args
 		self.__layout_kw = kw
 		self.__layout(self, *self.__layout_args, **self.__layout_kw)
+		return self
 
 	def pack(self, *args, **kw):
 		self.__layout = Scrollbar.pack
@@ -583,6 +596,7 @@ class Autoscrollbar(Scrollbar):
 		self.__layout_args = args
 		self.__layout_kw = kw
 		self.__layout(self, *self.__layout_args, **self.__layout_kw)
+		return self
 
 	def place(self, *args, **kw):
 		self.__layout = Scrollbar.place
@@ -590,6 +604,7 @@ class Autoscrollbar(Scrollbar):
 		self.__layout_args = args
 		self.__layout_kw = kw
 		self.__layout(self, *self.__layout_args, **self.__layout_kw)
+		return self
 
 	def set(self, lo ,hi):
 		if float(lo) <= 0.0 and float(hi) >= 1.0:

@@ -9,6 +9,8 @@
 
 [<img src="https://assets.gratipay.com/gratipay.svg?etag=3tGiSB5Uw_0-oWiLLxAqpQ~~" />](https://gratipay.com/yawTtk)
 
+[![](http://img.shields.io/gratipay/user/b_py.svg?style=flat-square)](https://gratipay.com/~b_py)
+
 `yawTtk` is a Python wrapper for Tile. It provides classes which allow the display,
 positioning and control of native look 'n feel widgets.
 

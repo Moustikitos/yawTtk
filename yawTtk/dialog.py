@@ -10,7 +10,7 @@ def _info(toplevel):
 		toplevel.overrideredirect(False)
 		toplevel.update()
 		_x, _y = toplevel.winfo_rootx(), toplevel.winfo_rooty()
-		dx, dy = abs(x-_x), abs(y-_y)
+		dx, dy = abs(x-_x)//2, abs(y-_y)
 	else:
 		dx, dy = 0, 0
 		w, h = toplevel.winfo_reqwidth(), toplevel.winfo_reqheight()
@@ -24,9 +24,9 @@ def center(toplevel, onscreen=False):
 
 	# center on master ork on screen
 	if toplevel.master != None and not onscreen:
-		_w, _h, _padding = _info(toplevel.master)
-		x = min(W-w-padding[0]-padding[2], toplevel.master.winfo_rootx() + _w/2 - (w+padding[0]+padding[2])/2)
-		y = min(H-h-padding[1]-padding[3], toplevel.master.winfo_rooty() + _h/2 - (h+padding[1]+padding[3])/2)
+		_w, _h = toplevel.master.winfo_width(), toplevel.master.winfo_height()
+		x = min(W-w-padding[0]-padding[2], toplevel.master.winfo_rootx() - padding[0] + _w/2 - w/2)
+		y = min(H-h-padding[1]-padding[3], toplevel.master.winfo_rooty() - padding[1] + _h/2 - h/2)
 	else:
 		x = (W-w-padding[0]-padding[2])/2
 		y = (H-h-padding[1]-padding[3])/2
@@ -36,9 +36,16 @@ def center(toplevel, onscreen=False):
 
 class BaseDialog(yawTtk.Toplevel):
 
-	def ismapped(self): return self.tk.call('winfo', 'ismapped', self)
-	def show(self): self.deiconify()
-	def hide(self): self.withdraw()
+	def ismapped(self):
+		return self.tk.call('winfo', 'ismapped', self)
+
+	def show(self):
+		self.deiconify()
+		return self
+
+	def hide(self):
+		self.withdraw()
+		return self
 
 	def __init__(self, master=None, cnf={}, **kw):
 		config = dict(cnf, **kw)
@@ -227,7 +234,7 @@ tick16=\
 "ixJiWx71YY09J5pM/WEbzFcDmHvwwBu2wnikg+lEj4mwBe5bC5h1OUqcwpdC60dxegRmR06TyjCF9G9z+qM2uCJmuMJmaNZaUrCSIi6X+jJIBBYtW5Cge7cd"\
 "7sgoHDfDaAvKQGAlRZYc6ltJlMxX03UzlaRlBdQrzSCwksLRbOpHUSb7pcsnxCCwngvM2Rm/ugUCi84fycr4l2t8Bb6iqTxSCgNIAAAAAElFTkSuQmCC"
 
-stop=\
+stop16=\
 "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJO"\
 "SURBVDjLpZI9T1RBFIaf3buAoBgJ8rl6QVBJVNDCShMLOhBj6T+wNUaDjY0WmpBIgYpAjL/AShJ+gVYYYRPIony5IETkQxZ2770zc2fGYpflQy2MJzk5J5M5"\
 "z/vO5ESstfxPxA4erL4Zuh4pLnoaiUZdq7XAGKzRJVbIBZ3JPLJaD9c/eCj/CFgZfNl5qK5q8EhTXdxxLKgQjAFr0NK0ppOpt9n51D2gd2cmsvOElVcvOopr"\
