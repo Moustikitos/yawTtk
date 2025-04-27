@@ -13,7 +13,7 @@ list of conditions and the following disclaimer.
 * Redistributions in binary form must reproduce the above copyright notice,
 this list of conditions and the following disclaimer in the documentation and/or
 other materials provided with the distribution.
-* Neither the name of the *yawTtk* nor the names of its contributors may be
+* Neither the name of the *yawTtk* nor the nSizegripames of its contributors may be
 used to endorse or promote products derived from this software without specific
 prior written permission.
 
@@ -28,28 +28,19 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 """
-
-import sys, os
-
-try: from Tkinter import *
-except ImportError: from tkinter import *
-
-if sys.version_info[:2] <= (2,7):
-	from yawTtk import *
-	from megawidget import *
-else:
-	from yawTtk.yawTtk import *
-	from yawTtk.megawidget import *
+import sys
+import tkinter
+from yawTtk.yawTtk import *
 
 
 __version__ = "1.0.5"
 __author__ = "Bruno THOORENS"
 
-# SIMPLE DEMO ======================================================================================
-def demo():
-	main = Tk()
 
-	image1 = main.tk.call("image", "create", "photo", "-data",
+def demo():
+    main = Tk()
+
+    image1 = main.tk.call("image", "create", "photo", "-data",
 "R0lGODlhUgBZAPcAAAAAAAY6NApOMg5vLgFmMwdxLQN3MhpnLBRoNRl3KxV5MydVNjl9Hi5uJxlPQhhzQiZNSidUSClXUjpJSTlbTDdaWCNkSS1nViJ5TCh8"\
 "UDpmSDtjWj9wWT1iYkF3N3J+Lk9VVUtwVEdqaEp3bFZublV5Zld3dml5RGp0dAWGMgybLgOZMxqHKxWJNBWZLRmYNAqjMheoLBSpMh2yLhu0Mj6DHyeGKSOJ"\
 "MSWWKCGSODSFIzuPNTSYJDi9HyaqKyOpMyi3KyW5MjmjIzW5Jx+GQBGfQCeMRSyDUiGTQDmIWzObRTaYVTyOYT2RYCSiRi6pVzeqQTyoVTm6RDeyWz7DHy3B"\
@@ -101,7 +92,7 @@ def demo():
 "xxCwAmuvOZoPmPBa35OwwbAuDiuwyWow3RAFK1AEH+sETxAFU8AGhtAGktiwGXuuubqx+lAP9gCzMJsP9vAu8Tq6Cw1Lr4B6DAyhED77s0BrEMygDuEAEWuo"\
 "szu7g2y4tEzbtE77tFAbtVGLtFRbtVZ7tVibtVq7tQEBADs=")
 
-	image2 = main.tk.call("image", "create", "photo", "-data",
+    image2 = main.tk.call("image", "create", "photo", "-data",
 "R0lGODlhEAAQAPcAAAAAAD9QclJXfH19fX5+fn9/fwtivAxjvA1nuw1kvRBkvTBPiDFRizFRjDJRjjlYlDdvsyBzyih4yEddhEdehUVgh0Nlj0VhikRijENm"\
 "kUBmlFp5mj2HziOL5CaO5iuP5iuP5yuR5iyQ5iyQ5y6S5i+S5yqQ6DSQ4zWU5WKAuXeUrUia4IS035ux1p653Jy635e+55u74pm95aO525vD7b3a7Mva48nb"\
 "58za48/c5NDc5NDc5dfg5fL19/L1+PL1+fP1+v//+v//+/7//P7//f7//v///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
@@ -114,7 +105,7 @@ def demo():
 "BFegKDEixAcSIjx0AGHiBAeBCBQcSMDxgAEDByREgCBAxT8WPHLsWKmDpQ0cN2ps+EfDiJEiOIvczGlTwz8YRoIIHTpUiJAiGf7JCCqEqNMiFv7FCOqUqJAh"\
 "GP69oFpVqBAiF/654Nr1a4V/M4wQITKkrdu2RIpQ+NcCyA8fPX7o3fvD7oR/KR40aMBgsOHBCxwEGFiAgOPHkAcgnPwvIAA7")
 
-	image3 = main.tk.call("image", "create", "photo", "-data",
+    image3 = main.tk.call("image", "create", "photo", "-data",
 "R0lGODlhEAAQAPcAAAAAAAA27wgz7hNX9Rld+BdkySNU8zBa5CRszSRx1y9z0Tl51UZs7Upy5UV39ld48ll78g2XEBeeCCGhJzahLjmrMECsKEy2Mk22N0q7"\
 "NWXASXXEX3fLUESB2VCK30yG/VuV52yC02WD6GGL+WWc6m6V8XKi7O9sQetqVO9/WvV8R5WQXImuaYTJZY3Odc+Mbv6FReSEYOeObOWBdOmEcPCEZvCRb/GW"\
 "bPeadP+ndtPLL/bGDvvJDf/RAPzSBP/VAP/dAP/gAP/mAP/rAP/0AP/8AsXKRdvCZOTcSPfZROzNapOTk5WVlZmRnJmZmZubm5u4i6Kioqampqenp5ug4ZSo"\
@@ -128,7 +119,7 @@ def demo():
 "mmZygTCiBBUoFCZEsBAn65NNmR4YcPAhRBIkRnSI0ZNJoKUzAgIMINCkCBEhQMbs2STwUhUGIhocODIkyA8ecu7UfYIpzyBGf9Ao8dFjh8FNhQwRMtRI0Bwy"\
 "b84+cvLv7KHXrxEpgoTnSZ0l/1qb3M3b0RMmuf9JmSKluPHhUYLnDggAOw==")
 
-	image4 = main.tk.call("image", "create", "photo", "-data",
+    image4 = main.tk.call("image", "create", "photo", "-data",
 "R0lGODlhEAAQAPcAAAAAAAAAXQAAZQAAbwAAdAAAdwAAeQ4oVRQtWxUvXilHczZEaERBYgYujx49jCM8jChFmjZXpTdYpDZYpk5XjkxkikFjlEtrll5phVxq"\
 "hltvj1xqiE14q2VviWV1k212kHJ+l09wwGSHr2SJrWuKrWKBtFyN3W+fzmOV6Xum34eXr4KTs5qlup2nuoeqypSvzZWyz5S215O42Jm20pu92qOuwqCyxae2"\
 "yaK4y6+1xa6/z6290arB1rfCz73H0KjK56/K5KbI+bTK4rjV7bHW9LPW9bfX9bfW+LPc/7/k/cPL2MnO18jU38DX7MHY7sfb6MnZ5sne8tXe6MTl98Pn/8Xj"\
@@ -143,160 +134,153 @@ def demo():
 "Aj1U+IEEiYgDC06jHnjBBRgLsmcvvHCCQ27dAzFomB0QADs="
 )
 
-	main["background"] = "pink"
-	style = Style()
-	
-	customize_all_widgets(True)
-	if sys.platform == "win32": style.theme_use("xpnative")
-	else: style.theme_use("clam")
+    main["background"] = "pink"
+    style = Style()
+    
+    customize_all_widgets(True)
+    if sys.platform == "win32": style.theme_use("xpnative")
+    else: style.theme_use("clam")
 
-	style.configure("TButton", foreground = "steelblue3", relief = "flat")
-	style.configure("Horizontal.TPanedwindow.Sash", background = "green")
-	style.layout("Vertical.MacScrollbar", """
-		Vertical.Scrollbar.trough -children {
-			Scrollbar.uparrow -side top -sticky {}
-			Scrollbar.downarrow -side bottom -sticky {}
-			Scrollbar.uparrow -side bottom -sticky {}
-			Vertical.Scrollbar.thumb -sticky nswe
-		}"""
-	)
+    style.configure("TButton", foreground = "steelblue3", relief = "flat")
+    style.configure("Horizontal.TPanedwindow.Sash", background = "green")
+    style.layout("Vertical.MacScrollbar", """
+        Vertical.Scrollbar.trough -children {
+            Scrollbar.uparrow -side top -sticky {}
+            Scrollbar.downarrow -side bottom -sticky {}
+            Scrollbar.uparrow -side bottom -sticky {}
+            Vertical.Scrollbar.thumb -sticky nswe
+        }"""
+    )
 
-	main["borderwidth"] = 2
-	main.columnconfigure(0, weight = 1)
-	main.rowconfigure(0, weight = 1)
-	main.title("All Tile widgets")
+    main["borderwidth"] = 2
+    main.columnconfigure(0, weight = 1)
+    main.rowconfigure(0, weight = 1)
+    main.title("All Tile widgets")
 
-	panedzone = Paned(main, orient = "horizontal", background = "pink")
-	panedzone.grid(row = 0, column = 0, sticky = "nwse")
+    panedzone = Paned(main, orient = "horizontal", background = "pink")
+    panedzone.grid(row = 0, column = 0, sticky = "nwse")
 
-	widgetpanel = Notebook(panedzone, background = "pink", tabposition="n", tabforeground = "steelblue3", tabrelief = "flat", tabfont = ("tahoma", "7", "bold"))
-	widgetpanel.enableTraversal()
+    widgetpanel = Notebook(panedzone, background = "pink", tabposition="n", tabforeground = "steelblue3", tabrelief = "flat", tabfont = ("tahoma", "7", "bold"))
+    widgetpanel.enableTraversal()
 
-	label_info = Label(widgetpanel,
+    label_info = Label(widgetpanel,
 
-		background = "lightgreen", foreground="yellow4",
-		font = ("calibri", "10", "bold"),
-		padding = (15, 15),
-		anchor = "center",
-		justify = "right",
+        background = "lightgreen", foreground="yellow4",
+        font = ("calibri", "10", "bold"),
+        padding = (15, 15),
+        anchor = "center",
+        justify = "right",
 
-		image = image1, compound = "left",
+        image = image1, compound = "left",
 
-		text = "yawTtk " + __version__ + "\n"\
-		       "Python version : " + sys.version.split(" ")[0] + "\n"\
-		       "TCL\\Tk version : " + Tkinter._tkinter.TK_VERSION + "\n"\
-		       "Ttk version : %s" % main.tk.call("package","version","tile")
-	)
+        text = "yawTtk " + __version__ + "\n"\
+               "Python version : " + sys.version.split(" ")[0] + "\n"\
+               "TCL\\Tk version : " + tkinter._tkinter.TK_VERSION + "\n"\
+               "Ttk version : %s" % main.tk.call("package","version","tile")
+    )
 
-	radiovalue = Tkinter.StringVar(main, "1", "radiovalue")
+    radiovalue = tkinter.StringVar(main, "1", "radiovalue")
 
-	labelwidget = Frame(widgetpanel, padding = 0, background = "lightgreen")
+    labelwidget = Frame(widgetpanel, padding = 0, background = "lightgreen")
 
-	b = Button(labelwidget, background = "lightgreen", anchor = "center", text = "button", font = ("calibri", "10", "bold"),
-		image = (image2, {"active" : image4, "focus" : image3}), compound = "left"
-	)
-	b.pack(expand = "yes", fill = "both", padx = 1, pady = 1)
+    b = Button(labelwidget, background = "lightgreen", anchor = "center", text = "button", font = ("calibri", "10", "bold"),
+        image = (image2, {"active" : image4, "focus" : image3}), compound = "left"
+    )
+    b.pack(expand = "yes", fill = "both", padx = 1, pady = 1)
 
-	mb = Menubutton(labelwidget, utext = "_menubutton", direction = "right", background = "green4", foreground = "grey", font = ("calibri", "10", "bold"))
-	mb.menu_insert("command", ulabel = "_command")
-	mb.menu_insert("separator")
-	mb.menu_insert("radiobutton", image=image2, selectimage=image3, compound="left", indicatoron=False, ulabel = "_radiobutton 2", variable = radiovalue, value = "second")
-	mb.menu_insert("radiobutton", image=image2, selectimage=image3, compound="left", indicatoron=False, ulabel = "r_adiobutton 1", variable = radiovalue, value = "first")
-	mb.menu_insert("separator")
-	mb.menu_insert("checkbutton", image=image2, selectimage=image3, compound="left", indicatoron=False, ulabel = "chec_kbutton", variable = radiovalue)
-	mb.pack(expand = "yes", fill = "both", padx = 1, pady = 1)
+    mb = Menubutton(labelwidget, utext = "_menubutton", direction = "right", background = "green4", foreground = "grey", font = ("calibri", "10", "bold"))
+    mb.menu_insert("command", ulabel = "_command")
+    mb.menu_insert("separator")
+    mb.menu_insert("radiobutton", image=image2, selectimage=image3, compound="left", indicatoron=False, ulabel = "_radiobutton 2", variable = radiovalue, value = "second")
+    mb.menu_insert("radiobutton", image=image2, selectimage=image3, compound="left", indicatoron=False, ulabel = "r_adiobutton 1", variable = radiovalue, value = "first")
+    mb.menu_insert("separator")
+    mb.menu_insert("checkbutton", image=image2, selectimage=image3, compound="left", indicatoron=False, ulabel = "chec_kbutton", variable = radiovalue)
+    mb.pack(expand = "yes", fill = "both", padx = 1, pady = 1)
 
-	Checkbutton(labelwidget, padding = (5, 0), text = "checkbutton", variable = radiovalue, background = "green4").pack(expand = "yes", fill = "both", padx = 1, pady = 1)
-	Radiobutton(labelwidget, padding = (5, 0), text = "radiobutton 1", variable = radiovalue, value = "first", background = "green3").pack(expand = "yes", fill = "both", padx = 1, pady = 1)
-	Radiobutton(labelwidget, padding = (5, 0), text = "radiobutton 2", variable = radiovalue, value = "second", background = "green1").pack(expand = "yes", fill = "both", padx = 1, pady = 1)
+    Checkbutton(labelwidget, padding = (5, 0), text = "checkbutton", variable = radiovalue, background = "green4").pack(expand = "yes", fill = "both", padx = 1, pady = 1)
+    Radiobutton(labelwidget, padding = (5, 0), text = "radiobutton 1", variable = radiovalue, value = "first", background = "green3").pack(expand = "yes", fill = "both", padx = 1, pady = 1)
+    Radiobutton(labelwidget, padding = (5, 0), text = "radiobutton 2", variable = radiovalue, value = "second", background = "green1").pack(expand = "yes", fill = "both", padx = 1, pady = 1)
 
-	# ===================================
-	scalevalue = Tkinter.IntVar(main, 61, "scalevalue")
-	packer = Frame(widgetpanel, padding = 0)
-	packer.rowconfigure(0, weight = 1)
-	packer.columnconfigure(0, weight = 1)
+    # ===================================
+    scalevalue = tkinter.IntVar(main, 61, "scalevalue")
+    packer = Frame(widgetpanel, padding = 0)
+    packer.rowconfigure(0, weight = 1)
+    packer.columnconfigure(0, weight = 1)
 
-	specialwidget = megawidget.Scrolledframe(packer, padding = 2, relief="solid", stretch = True)
-	scrollx = Autoscrollbar(packer, target=specialwidget, orient = "horizontal")
-	scrolly = Autoscrollbar(packer, target=specialwidget, orient = "vertical", style="MacScrollbar")
-	scrollx.grid(row = 1, column = 0, sticky = "nwse")
-	scrolly.grid(row = 0, column = 1, sticky = "nwse")
-	specialwidget.grid(row = 0, column = 0, sticky = "nwse")
+    specialwidget = Scrolledframe(packer, padding = 10, relief="solid")
+    specialwidget.grid(row = 0, column = 0, sticky = "nwse")
 
-	sc = Scale(specialwidget(), variable = scalevalue, from_ = 1, to = 100, orient = "vertical")
-	sc.pack(side = "right", expand = "no", fill = "both", padx = 1, pady = 1)
-	sc["background"] = "blue"
-	w = Progressbar(specialwidget(), variable = scalevalue, orient = "vertical")
-	w.pack(side = "right", expand = "no", fill = "both", padx = 1, pady = 1)
-	print(style.layout("Vertical.TProgressbar"))
+    inner_frame = specialwidget()
+    sc = Scale(inner_frame, variable = scalevalue, from_ = 1, to = 100, orient = "vertical")
+    sc.pack(side = "right", expand = "no", fill = "both", padx = 1, pady = 1)
+    sc["background"] = "blue"
+    w = Progressbar(inner_frame, variable = scalevalue, orient = "vertical")
+    w.pack(side = "right", expand = "no", fill = "both", padx = 1, pady = 1)
+    print(style.layout("Vertical.TProgressbar"))
 
-	Scale(specialwidget(), variable = scalevalue, from_ = 1, to = 100, orient = "horizontal").pack(expand = "no", fill = "both", padx = 1, pady = 1)
-	Progressbar(specialwidget(), variable = scalevalue, orient = "horizontal").pack(expand = "no", fill = "both", padx = 1, pady = 1)
-	Separator(specialwidget()).pack(expand = "no", fill = "both", padx = 5, pady = 10)
-	Entry(specialwidget(), textvariable = scalevalue).pack(expand = "yes", fill = "both", padx = 1, pady = 1)
+    Scale(inner_frame, variable = scalevalue, from_ = 1, to = 100, orient = "horizontal").pack(expand = "no", fill = "both", padx = 1, pady = 1)
+    Progressbar(inner_frame, variable = scalevalue, orient = "horizontal").pack(expand = "no", fill = "both", padx = 1, pady = 1)
+    Separator(inner_frame).pack(expand = "no", fill = "both", padx = 5, pady = 10)
+    Entry(inner_frame, textvariable = scalevalue).pack(expand = "yes", fill = "both", padx = 1, pady = 1)
 
-	cb = Combobox(specialwidget(), state = "readonly", values = style.theme_names(), listbackground="red", listheight=4)
-	cb.pack(expand = "yes", fill = "both", padx = 1, pady = 1)
-	cb.bind("<<ComboboxSelected>>", lambda arg: style.theme_use(arg.widget.get()))
-	if sys.platform == "win32": cb.set("xpnative")
-	else: cb.set("clam")
+    cb = Combobox(inner_frame, state = "readonly", values = style.theme_names(), listbackground="red", listheight=4)
+    cb.pack(expand = "yes", fill = "both", padx = 1, pady = 1)
+    cb.bind("<<ComboboxSelected>>", lambda arg: style.theme_use(arg.widget.get()))
+    if sys.platform == "win32": cb.set("xpnative")
+    else: cb.set("clam")
 
-	Frame(specialwidget(), background = "lightblue", height = 200).pack(expand = "yes", fill = "both", padx = 1, pady = 1)
-	# ===================================
+    Frame(inner_frame, background = "lightblue", height = 200).pack(expand = "yes", fill = "both", padx = 1, pady = 1)
+    # ===================================
 
-	# ===================================
-	packer002 = Frame(widgetpanel, padding = 0)
-	packer002.rowconfigure(0, weight = 1)
-	packer002.columnconfigure(0, weight = 1)
+    # ===================================
+    packer002 = Frame(widgetpanel, padding = 0)
+    packer002.rowconfigure(0, weight = 1)
+    packer002.columnconfigure(0, weight = 1)
 
-	customwidget = megawidget.Scrolledframe(packer002, padding = 0, stretch = True)
-	scrollx = Autoscrollbar(packer002, target=customwidget, orient="horizontal")
-	scrolly = Autoscrollbar(packer002, target=customwidget, orient="vertical")
-	scrollx.grid(row = 1, column = 0, sticky = "nwse")
-	scrolly.grid(row = 0, column = 1, sticky = "nwse")
-	customwidget.grid(row = 0, column = 0, sticky = "nwse")
+    customwidget = Scrolledframe(packer002, padding = 0)
+    customwidget.grid(row = 0, column = 0, sticky = "nwse")
 
-	test2 = megawidget.CalendarFrame(customwidget(), format = "%d/%m/%Y", relief = "flat", padding = 3, background = "lightblue")
-	test2.pack(padx = 2, pady = 2)
+    # test2 = megawidget.CalendarFrame(customwidget(), format = "%d/%m/%Y", relief = "flat", padding = 3, background = "lightblue")
+    # test2.pack(padx = 2, pady = 2)
 
-	# ===================================
+    # ===================================
 
-	widgetpanel.add(labelwidget, utext = "_Classic", compound = "left", padding = 2, image = image2)
+    widgetpanel.add(labelwidget, utext = "_Classic", compound = "left", padding = 2, image = image2)
 
-	# specialwidget.update()
-	widgetpanel.add(packer, utext = "_Special", compound = "left", padding = 2, image = image3)
+    # specialwidget.update()
+    widgetpanel.add(packer, utext = "_Special", compound = "left", padding = 2, image = image3)
 
-	widgetpanel.add(packer002, utext = "C_ustom", compound = "left", padding = 2, image = \
-	"R0lGODlhEAAQAPcAAAAAAJwLCq8ZE7UtHb4iF6AwMKI+O6NAO45YV55ORpBwdpN0c6lXV6heWrVVUr51ctArHN4yHuQ4IeeEf4qKjouMko6Plo+PmJyFhZOT"\
-	"nJiYmZqampaYoJ6ep9KIg+uJgfKTivWWiv+Xg/ubjeqooOqqpfS6s9zc6QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
-	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
-	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
-	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
-	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
-	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
-	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
-	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAAAQABAAAAhPAP8JHEiwoEAK"\
-	"Ggwq/FfhxIaFBi10gKjwAkWDGS4W5KCRoAIHCDoGmPCgYwEBHzxg6EgARIkFGhlACGEC5kUDEUaQ6HhAgogEHRsM6FgwIAA7")
+    widgetpanel.add(packer002, utext = "C_ustom", compound = "left", padding = 2, image = \
+    "R0lGODlhEAAQAPcAAAAAAJwLCq8ZE7UtHb4iF6AwMKI+O6NAO45YV55ORpBwdpN0c6lXV6heWrVVUr51ctArHN4yHuQ4IeeEf4qKjouMko6Plo+PmJyFhZOT"\
+    "nJiYmZqampaYoJ6ep9KIg+uJgfKTivWWiv+Xg/ubjeqooOqqpfS6s9zc6QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
+    "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
+    "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
+    "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
+    "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
+    "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
+    "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"\
+    "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAAAQABAAAAhPAP8JHEiwoEAK"\
+    "Ggwq/FfhxIaFBi10gKjwAkWDGS4W5KCRoAIHCDoGmPCgYwEBHzxg6EgARIkFGhlACGEC5kUDEUaQ6HhAgogEHRsM6FgwIAA7")
 
-	widgetpanel.add(label_info, utext = "_Info", compound = "left", padding = 2, image = image4)
+    widgetpanel.add(label_info, utext = "_Info", compound = "left", padding = 2, image = image4)
 
-	widgetoption = Labelframe(
-		panedzone,
-		background = "pink",
-		text = "paned",
-		width = 100,
-		labelbackground = "pink",
-		labelforeground = "steelblue3",
-		labelfont = ("tahoma", "8", "bold"),
-		labelanchor = "n",
-		labeloutside = True,
-		labelmargins = 0
-	)
+    widgetoption = Labelframe(
+        panedzone,
+        background = "pink",
+        text = "paned",
+        width = 100,
+        labelbackground = "pink",
+        labelforeground = "steelblue3",
+        labelfont = ("tahoma", "8", "bold"),
+        labelanchor = "n",
+        labeloutside = True,
+        labelmargins = 0
+    )
 
-	panedzone.add(widgetpanel, weight = 0)
-	panedzone.add(widgetoption, weight = 0)
+    panedzone.add(widgetpanel, weight = 0)
+    panedzone.add(widgetoption, weight = 0)
 
-	Sizegrip(widgetoption, background = "pink").place(relx = 1.0, rely = 1.0, anchor = "se")
+    Sizegrip(widgetoption, background = "pink").place(relx = 1.0, rely = 1.0, anchor = "se")
 
-	main.focus()
-	main.mainloop()
+    main.focus()
+    main.mainloop()
